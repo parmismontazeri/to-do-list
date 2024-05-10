@@ -21,7 +21,9 @@ function Buttons() {
         )}
       </button>
       <p className={done ? "line-through" : ""}>Task</p>
-      <FontAwesomeIcon icon={faTrash} className="text-red-500" />
+      <button>
+        <FontAwesomeIcon icon={faTrash} className="text-red-500" />
+      </button>
     </div>
   );
 }
