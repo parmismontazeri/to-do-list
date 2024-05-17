@@ -13,12 +13,18 @@ const ToDoList = () => {
   };
 
   const handleAddTask = () => {
-    setTodoList([...todoList, task]);
+    const taskId = Date.now();
+    const newTask = {
+      id: taskId,
+      text: task,
+    };
+
+    setTodoList([...todoList, newTask]);
     setTask("");
   };
 
   const handleRemoveTask = (taskId) => {
-    //setTodoList(todoList.filter((task) => task.id !== taskId));
+    setTodoList(todoList.filter((task) => task.id !== taskId));
     console.log(taskId);
   };
 
@@ -42,14 +48,15 @@ const ToDoList = () => {
             <FontAwesomeIcon icon={faPlus} />
           </button>
         </div>
-
-        {todoList.map((addedTask, index) => (
-          <Taskcard
-            text={addedTask}
-            onDelete={() => handleRemoveTask(addedTask.id)}
-            key={index}
-          />
-        ))}
+        <div className="overflow-y-auto w-full h-[11.5cm]">
+          {todoList.map((addedTask, index) => (
+            <Taskcard
+              text={addedTask.text}
+              onDelete={() => handleRemoveTask(addedTask.id)}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

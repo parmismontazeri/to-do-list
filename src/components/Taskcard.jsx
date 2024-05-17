@@ -8,7 +8,7 @@ import { useState } from "react";
 function Taskcard(props) {
   const [done, setDone] = useState(false);
   return (
-    <div className="flex flex-row justify-between w-full h-8 rounded bg-blue-500 mt-4">
+    <div className="flex flex-row justify-between w-full h-8 rounded bg-blue-500 mt-4 px-3">
       <button
         onClick={() => {
           setDone(!done);
