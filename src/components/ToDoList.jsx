@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import Buttons from "./Buttons";
+import Taskcard from "./Taskcard";
 import { useState } from "react";
 
 const ToDoList = () => {
@@ -15,6 +15,11 @@ const ToDoList = () => {
   const handleAddTask = () => {
     setTodoList([...todoList, task]);
     setTask("");
+  };
+
+  const handleRemoveTask = (taskId) => {
+    //setTodoList(todoList.filter((task) => task.id !== taskId));
+    console.log(taskId);
   };
 
   return (
@@ -36,13 +41,15 @@ const ToDoList = () => {
           >
             <FontAwesomeIcon icon={faPlus} />
           </button>
-          <ul>
-            {todoList.map((task, index) => (
-              <li key={index}>{task}</li>
-            ))}
-          </ul>
         </div>
-        <Buttons />
+
+        {todoList.map((addedTask, index) => (
+          <Taskcard
+            text={addedTask}
+            onDelete={() => handleRemoveTask(addedTask.id)}
+            key={index}
+          />
+        ))}
       </div>
     </div>
   );

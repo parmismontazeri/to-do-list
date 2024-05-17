@@ -1,14 +1,12 @@
-import ToDoList from "./components/ToDoList"
-
+import { text } from "@fortawesome/fontawesome-svg-core";
+import ToDoList from "./components/ToDoList";
 
 function App() {
-
   return (
-    <div className='h-screen w-screen flex items-center justify-center'>
- 
-        <ToDoList/>
+    <div className="h-screen w-screen flex items-center justify-center">
+      <ToDoList />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

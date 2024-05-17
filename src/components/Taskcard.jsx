@@ -5,7 +5,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function Buttons() {
+function Taskcard(props) {
   const [done, setDone] = useState(false);
   return (
     <div className="flex flex-row justify-between w-full h-8 rounded bg-blue-500 mt-4">
@@ -20,12 +20,12 @@ function Buttons() {
           <FontAwesomeIcon icon={faCircle} />
         )}
       </button>
-      <p className={done ? "line-through" : ""}>Task</p>
-      <button>
+      <p className={done ? "line-through" : ""}>{props.text}</p>
+      <button onClick={props.onDelete}>
         <FontAwesomeIcon icon={faTrash} className="text-red-500" />
       </button>
     </div>
   );
 }
 
-export default Buttons;
+export default Taskcard;
